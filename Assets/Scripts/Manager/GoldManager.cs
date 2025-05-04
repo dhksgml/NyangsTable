@@ -15,10 +15,18 @@ public class GoldManager : Singleton<GoldManager>
 
     [SerializeField] private UIEffectSpawner uiEffectSpawner;
 
+    public float maxReductionRate = 0.5f; //Roach 수만큼 획득 골드 감소 패널티
+    public int maxRoachCountForPenalty = 5;
+    public int minGold = 1;
+    
+    RandomPrefabSpawner randomPrefabSpawner;
+
     private void Start()
     {
         AddGold(testGold);
         LoadGold();
+
+        randomPrefabSpawner = FindObjectOfType<RandomPrefabSpawner>();
     }
 
     private void Update()
@@ -33,7 +41,21 @@ public class GoldManager : Singleton<GoldManager>
 
     public void AddGold(int amount)
     {
-        currentGold += amount;
+        if (randomPrefabSpawner != null)
+        {
+            int roachCount = randomPrefabSpawner.GetRouchCount();
+            float ratio = roachCount / (float)maxRoachCountForPenalty;
+            float penalty = Mathf.Clamp01((Mathf.Sqrt(ratio) * maxReductionRate));
+            int finalGold = Mathf.Max(minGold, Mathf.RoundToInt(amount * (1f - penalty)));
+
+            Debug.Log($"벌레 수: {roachCount}, 보정률: {penalty}, 원금: {amount}, 최종 지급: {finalGold}");
+
+
+            currentGold += finalGold;
+        }
+        else
+            currentGold += amount;
+
         PlayerPrefs.SetInt(GOLD_KEY, currentGold);
         PlayerPrefs.Save();
 

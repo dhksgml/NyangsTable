@@ -8,7 +8,7 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject uiNextStageButton;
     [SerializeField] private GameObject uiUpgradeCanvas;
     [SerializeField] private Slider uiGoalGoldBar;
-    private bool isUIActive = true;
+    private bool isUIActive = false;
 
     private void Start()
     {

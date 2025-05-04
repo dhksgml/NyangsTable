@@ -905,6 +905,7 @@ MonoBehaviour:
   stage1Clip: {fileID: 8300000, guid: 4fcde94b442ed6743939454b55bc486c, type: 3}
   stage2Clip: {fileID: 8300000, guid: fdd52adc33b6b8a4b96c69af21b321a0, type: 3}
   coinClip: {fileID: 8300000, guid: 49c7d543974fb4e478abe27e999514f0, type: 3}
+  specialCoinClip: {fileID: 8300000, guid: 4d8a9d2a4233e4398807206a01cbb9e4, type: 3}
   fadeDuration: 0.5
 --- !u!4 &943326796
 Transform:
@@ -1832,8 +1833,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uB0E5\uC774\uC758 \uC2DD\uD0C1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 348991859f5738d479b836776cedbafc, type: 2}
-  m_sharedMaterial: {fileID: -1390005983681404917, guid: 348991859f5738d479b836776cedbafc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e0bd950ee23246944915541e8a41f940, type: 2}
+  m_sharedMaterial: {fileID: -1390005983681404917, guid: e0bd950ee23246944915541e8a41f940, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

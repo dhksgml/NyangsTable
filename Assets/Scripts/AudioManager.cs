@@ -20,6 +20,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("SFX Clips")]
     public AudioClip coinClip;
+    public AudioClip specialCoinClip;
 
     [Header("Settings")]
     public float fadeDuration = 1.5f;
@@ -120,6 +121,11 @@ public class AudioManager : MonoBehaviour
     public void PlayCoinSFX()
     {
         PlaySFX(coinClip);
+    }
+
+    public void PlaySpecialCoinSFX()
+    {
+        PlaySFX(specialCoinClip);
     }
 
     // 필요 시 사용

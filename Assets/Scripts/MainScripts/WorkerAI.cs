@@ -24,6 +24,7 @@ public class WorkerAI : MonoBehaviour
         StartCoroutine(WorkRoutine());
     }
 
+
     IEnumerator WorkRoutine()
     {
         while (true)

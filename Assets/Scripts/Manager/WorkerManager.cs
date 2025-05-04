@@ -5,7 +5,7 @@ using UnityEngine;
 public class WorkerManager : Singleton<WorkerManager>
 {
     [Header("Prefab")]
-    [SerializeField] private WorkerAI workerPrefab;
+    [SerializeField] private GameObject[] workerPrefabs;
 
     private List<WorkerAI> _workers;
     public List<WorkerAI> Workers => _workers;
@@ -19,7 +19,9 @@ public class WorkerManager : Singleton<WorkerManager>
     }
     public void CreateWorker()
     {
-        WorkerAI newWorker = Instantiate(workerPrefab, WorkSpaceManager.Instance.sellLocation.position, Quaternion.identity);
+        int randomNum = Random.Range(0, workerPrefabs.Length);
+        GameObject newWorkerPrefab = workerPrefabs[randomNum];
+        WorkerAI newWorker = Instantiate(newWorkerPrefab.GetComponent<WorkerAI>(), WorkSpaceManager.Instance.sellLocation.position, Quaternion.identity);
         _workers.Add(newWorker);
         newWorker.transform.SetParent(this.transform);
     }
