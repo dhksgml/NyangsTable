@@ -13,5 +13,7 @@
 >
 > 음식을 팔아 최고의 부자가 되어보자는 꿈을 갖는다.
 
+![image](https://github.com/user-attachments/assets/a18b8532-19b7-4622-908a-de5b949d44da)
+
 ### Unity 버전
 > 2021.3.33f1
