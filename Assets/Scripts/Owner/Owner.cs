@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Owner : MonoBehaviour
 {
+    public static bool IsTutorialMode = false;
+
     public int touchEarnGold = 1;
     public int touchEarnSpecialGold = 5;
 
@@ -19,6 +21,8 @@ public class Owner : MonoBehaviour
 
     private void Update()
     {
+        if (IsTutorialMode) return;
+
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

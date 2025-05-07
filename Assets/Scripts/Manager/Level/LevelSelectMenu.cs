@@ -32,7 +32,10 @@ public class LevelSelectMenu : MonoBehaviour
         if (GameManager.Instance)
             gameData = GameManager.Instance.GetGameData();
         else
+        {
             gameData = new GameData();
+            gameData.UnlockLevel = 1;
+        }
         unlockedLevel = gameData.UnlockLevel;
         Refresh();
     }

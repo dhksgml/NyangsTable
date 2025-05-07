@@ -1,0 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Roach : MonoBehaviour
+{
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Animator animator;
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+            RaycastHit2D hitData = Physics2D.Raycast(mousePos2D, Vector2.zero);
+            if (hitData.collider != null)
+            {
+                if (hitData.collider.gameObject == gameObject)
+                {
+                    Die();
+                }
+            }
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("Die");
+        animator.SetTrigger("Die");
+    }
+
+    private void DestroyRoach()
+    {
+        Destroy(this.gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        RandomPrefabSpawner spawner = FindObjectOfType<RandomPrefabSpawner>();
+        if(spawner != null)
+        {
+            spawner.DecreaseSpawnCount();
+        }
+    }
+}
