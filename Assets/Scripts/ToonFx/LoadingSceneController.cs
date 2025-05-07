@@ -6,8 +6,8 @@ namespace ToonFx
 {
     public class LoadingSceneController : MonoBehaviour
     {
-        public static string nextSceneName = "Stage0"; // 전환할 씬 이름
-        public float loadingTime = 5f;          // 로딩 대기 시간
+        public static string nextSceneName;  // 최종 목적지 씬 이름
+        public float loadingTime = 5f;       // 로딩 시간
 
         void Start()
         {
@@ -16,10 +16,8 @@ namespace ToonFx
 
         IEnumerator LoadSceneAsync()
         {
-            // 단순히 대기 시간 후 씬 로드
             yield return new WaitForSeconds(loadingTime);
 
-            // 비동기 씬 로딩
             AsyncOperation async = SceneManager.LoadSceneAsync(nextSceneName);
 
             while (!async.isDone)

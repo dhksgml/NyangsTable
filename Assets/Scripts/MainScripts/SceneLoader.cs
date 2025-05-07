@@ -31,7 +31,10 @@ public class SceneLoader : MonoBehaviour
         {
             Debug.Log(sceneToLoad + " 씬 로딩 시도");
             ToonFx.LoadingSceneController.nextSceneName = sceneName;
-            SceneManager.LoadScene("LoadingScene"); // 씬 로드
+
+            int randomNum = Random.Range(0, 2);
+            string randomSceneName = randomNum == 0 ? "LoadingScene" : "LoadingScene2";
+            SceneManager.LoadScene(randomSceneName); // 씬 로드
         }
         else
         {
