@@ -16,4 +16,5 @@ public class ScaleEffect : MonoBehaviour
                     .SetEase(Ease.InQuad) // 부드러운 축소 효과
             );
     }
+
 }

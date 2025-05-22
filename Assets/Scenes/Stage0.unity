@@ -589,6 +589,7 @@ GameObject:
   - component: {fileID: 147948792}
   - component: {fileID: 147948791}
   - component: {fileID: 147948790}
+  - component: {fileID: 147948793}
   m_Layer: 5
   m_Name: TotalGoldText (TMP)
   m_TagString: Untagged
@@ -616,7 +617,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'TOTAL GOLD :'
+  m_text: 'TOTAL GOLD : 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 48a707f54b5e77e4f99b3b8ed13fffda, type: 2}
   m_sharedMaterial: {fileID: -1390005983681404917, guid: 48a707f54b5e77e4f99b3b8ed13fffda, type: 2}
@@ -713,6 +714,20 @@ RectTransform:
   m_AnchoredPosition: {x: -720, y: 502}
   m_SizeDelta: {x: 375.6, y: 36.7}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &147948793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147948789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff968554ad169654cbde159c114ce6d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current: 0
+  target: 0
 --- !u!1 &153376052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,6 +1026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eaf6e5f3686ee944a2cb374f8d3671a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiTotalGoldText: {fileID: 147948790}
   uiNextStageButton: {fileID: 1751650203}
   uiUpgradeCanvas: {fileID: 661124717}
   uiGoalGoldBar: {fileID: 308364996}
@@ -2079,7 +2095,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.37254903, g: 0.29411766, b: 0.23529412, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3047,7 +3063,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628627779}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.8204746, y: -4.2, z: 0}
+  m_LocalPosition: {x: 1.64, y: -4.2, z: 0}
   m_LocalScale: {x: 7.025, y: 8.503201, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10549,7 +10565,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969288779}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.519675, y: 1.8457761, z: 0}
+  m_LocalPosition: {x: -5.41, y: 1.8457761, z: 0}
   m_LocalScale: {x: 7.025, y: 8.503201, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

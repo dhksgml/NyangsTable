@@ -29,6 +29,15 @@ public class Roach : MonoBehaviour
     {
         Debug.Log("Die");
         animator.SetTrigger("Die");
+        Camera.main.GetComponent<CameraZoomEffect>().ZoomToPosition(gameObject.transform.position);
+        StartCoroutine(ColorFlesh());
+    }
+
+    IEnumerator ColorFlesh()
+    {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = Color.white;
     }
 
     private void DestroyRoach()

@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetGameData()
     {
-        gameData.UnlockLevel = 1;
+        gameData.UnlockLevel = 0;
     }
 
     private void OnApplicationQuit()

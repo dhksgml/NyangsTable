@@ -1452,6 +1452,7 @@ GameObject:
   - component: {fileID: 310810598}
   - component: {fileID: 310810597}
   - component: {fileID: 310810596}
+  - component: {fileID: 310810599}
   m_Layer: 5
   m_Name: TotalGoldText (TMP)
   m_TagString: Untagged
@@ -1576,6 +1577,20 @@ RectTransform:
   m_AnchoredPosition: {x: -720, y: 502}
   m_SizeDelta: {x: 375.6, y: 36.7}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &310810599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310810595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff968554ad169654cbde159c114ce6d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current: 0
+  target: 0
 --- !u!1 &342695856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2727,7 +2742,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.37254903, g: 0.29411766, b: 0.23529412, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2773,7 +2788,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -3075,7 +3090,7 @@ RectTransform:
   - {fileID: 261231512}
   - {fileID: 1442436539}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3931,7 +3946,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &852793511
 GameObject:
@@ -4508,7 +4523,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &978815614
 Rigidbody2D:
@@ -4710,7 +4725,7 @@ Transform:
   - {fileID: 1301542179}
   - {fileID: 758213246}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1036783481
 GameObject:
@@ -4881,7 +4896,7 @@ RectTransform:
   - {fileID: 1497347165}
   - {fileID: 2136597616}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5293,7 +5308,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1139422589
 GameObject:
@@ -5324,6 +5339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eaf6e5f3686ee944a2cb374f8d3671a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiTotalGoldText: {fileID: 310810596}
   uiNextStageButton: {fileID: 1442436541}
   uiUpgradeCanvas: {fileID: 1055355048}
   uiGoalGoldBar: {fileID: 1036783483}
@@ -5340,7 +5356,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1163912933
 GameObject:
@@ -5942,8 +5958,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: UPGRADE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e0bd950ee23246944915541e8a41f940, type: 2}
-  m_sharedMaterial: {fileID: -1390005983681404917, guid: e0bd950ee23246944915541e8a41f940, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 48a707f54b5e77e4f99b3b8ed13fffda, type: 2}
+  m_sharedMaterial: {fileID: -1390005983681404917, guid: 48a707f54b5e77e4f99b3b8ed13fffda, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6192,7 +6208,7 @@ Transform:
   - {fileID: 1592927102}
   - {fileID: 592642540}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1415112514
 GameObject:
@@ -10244,7 +10260,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1969262854
 GameObject:

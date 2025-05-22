@@ -57,9 +57,9 @@ public class UpgradeUI : MonoBehaviour
     }
     
     
-    private void Update()
-    {
-        totalGoldTMP.text = $"Total Gold: {GoldManager.Instance.CurrentGold}";
-    }
+    //private void Update()
+    //{
+    //    totalGoldTMP.text = $"Total Gold: {GoldManager.Instance.CurrentGold}";
+    //}
 
 }

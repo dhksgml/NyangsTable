@@ -9,7 +9,7 @@ public class LevelSelectMenu : MonoBehaviour
 
     public int totalLevel = 0;
 
-    public int unlockedLevel = 1;
+    public int unlockedLevel = 0;
     private LevelButton[] levelButtons;
 
     private int currentSelectedLevel;
@@ -30,11 +30,13 @@ public class LevelSelectMenu : MonoBehaviour
         levelButtons = GetComponentsInChildren<LevelButton>();
 
         if (GameManager.Instance)
+        {
             gameData = GameManager.Instance.GetGameData();
+        }
         else
         {
             gameData = new GameData();
-            gameData.UnlockLevel = 1;
+            gameData.UnlockLevel = 0;
         }
         unlockedLevel = gameData.UnlockLevel;
         Refresh();
@@ -49,9 +51,9 @@ public class LevelSelectMenu : MonoBehaviour
             if (levelButtons[i] == null)
                 continue;
 
-            int level = index + i + 1;
+            int level = index + i;
 
-            if (level <= totalLevel)
+            if (level < totalLevel)
             {
                 levelButtons[i].gameObject.SetActive(true);
                 levelButtons[i].Setup(level, level <= unlockedLevel);

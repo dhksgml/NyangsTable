@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class GoldManager : Singleton<GoldManager>
 {
-    [SerializeField] private int testGold = 10000;
+    [SerializeField] private int testGold = 100;
     [SerializeField] private int goalGold = 10100;
     [SerializeField] private RectTransform goldBar; // 골드바 슬라이더 UI
 
     private int currentGold;
-    private readonly string GOLD_KEY = "GoldKey";
+    //private readonly string GOLD_KEY = "GoldKey";
     public int CurrentGold => currentGold;
 
 
@@ -21,12 +21,15 @@ public class GoldManager : Singleton<GoldManager>
     
     RandomPrefabSpawner randomPrefabSpawner;
 
+    NumberCounter numberCounter;
+
     private void Start()
     {
-        AddGold(testGold);
-        LoadGold();
+        //AddGold(testGold);
+        //LoadGold();
 
         randomPrefabSpawner = FindObjectOfType<RandomPrefabSpawner>();
+        numberCounter = FindObjectOfType<NumberCounter>();
     }
 
     private void Update()
@@ -34,10 +37,10 @@ public class GoldManager : Singleton<GoldManager>
         CheckGold();
     }
 
-    private void LoadGold()
-    {
-        currentGold = PlayerPrefs.GetInt(GOLD_KEY, testGold);
-    }
+    //private void LoadGold()
+    //{
+    //    currentGold = PlayerPrefs.GetInt(GOLD_KEY, testGold);
+    //}
 
     public void AddGold(int amount)
     {
@@ -56,8 +59,11 @@ public class GoldManager : Singleton<GoldManager>
         else
             currentGold += amount;
 
-        PlayerPrefs.SetInt(GOLD_KEY, currentGold);
-        PlayerPrefs.Save();
+        //PlayerPrefs.SetInt(GOLD_KEY, currentGold);
+        //PlayerPrefs.Save();
+
+        if(numberCounter != null)
+            numberCounter.SetTargetGolde(currentGold);
 
         if (uiEffectSpawner != null)
         {
@@ -79,8 +85,11 @@ public class GoldManager : Singleton<GoldManager>
     public void RemoveGold(int amount)
     {
         currentGold -= amount;
-        PlayerPrefs.SetInt(GOLD_KEY, currentGold);
-        PlayerPrefs.Save();
+        //PlayerPrefs.SetInt(GOLD_KEY, currentGold);
+        //PlayerPrefs.Save();
+
+        if (numberCounter != null)
+            numberCounter.SetTargetGolde(currentGold);
     }
 
     public void CheckGold()
