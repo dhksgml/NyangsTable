@@ -14,6 +14,7 @@ public class NumberCounter : MonoBehaviour
 
     private void Start()
     {
+        StopDisplay();
         current = 0;
         target = GoldManager.Instance.CurrentGold;
         Display();
@@ -25,7 +26,9 @@ public class NumberCounter : MonoBehaviour
         goldTween = DOVirtual.Float(current, target, 0.3f, (x) =>
         {
             current = x;
-            UI.Instance.UpdateGoldText(current);
+
+            if(UI.Instance != null)
+                UI.Instance.UpdateGoldText(current);
 
         }).OnComplete(() => {
             if (!GameManager.Instance.IsGameEnded)
@@ -49,4 +52,8 @@ public class NumberCounter : MonoBehaviour
         target = value;
     }
 
+    private void OnDestroy()
+    {
+        StopDisplay();
+    }
 }
