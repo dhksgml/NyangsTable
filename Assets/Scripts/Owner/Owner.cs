@@ -53,7 +53,7 @@ public class Owner : MonoBehaviour
 
     void SpecialAction()
     {
-        GoldManager.Instance.AddGold(touchEarnSpecialGold);
+        GoldManager.Instance.AddGold(touchEarnSpecialGold, transform.position);
 
         if (scaleEffect != null)
             scaleEffect.ScaleUpAndDown();
@@ -76,7 +76,7 @@ public class Owner : MonoBehaviour
 
     void NomalAction()
     {
-        GoldManager.Instance.AddGold(touchEarnGold);
+        GoldManager.Instance.AddGold(touchEarnGold, transform.position);
 
         if (scaleEffect != null)
             scaleEffect.ScaleUpAndDown();

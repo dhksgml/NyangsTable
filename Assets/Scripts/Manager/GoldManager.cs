@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,6 +24,8 @@ public class GoldManager : Singleton<GoldManager>
 
     NumberCounter numberCounter;
 
+    public event Action<int, Vector3> OnGoldAdded;
+
     private void Start()
     {
         //AddGold(testGold);
@@ -42,6 +45,9 @@ public class GoldManager : Singleton<GoldManager>
     //    currentGold = PlayerPrefs.GetInt(GOLD_KEY, testGold);
     //}
 
+    
+
+    
     public void AddGold(int amount)
     {
         if (randomPrefabSpawner != null)
@@ -55,15 +61,20 @@ public class GoldManager : Singleton<GoldManager>
 
 
             currentGold += finalGold;
+            //ShowFloatingText(finalGold.ToString());
         }
         else
+        {
             currentGold += amount;
+            //ShowFloatingText(amount.ToString());
+        }
+            
 
         //PlayerPrefs.SetInt(GOLD_KEY, currentGold);
         //PlayerPrefs.Save();
 
         if(numberCounter != null)
-            numberCounter.SetTargetGolde(currentGold);
+            numberCounter.SetTargetGold(currentGold);
 
         if (uiEffectSpawner != null)
         {
@@ -81,6 +92,29 @@ public class GoldManager : Singleton<GoldManager>
 
         }
     }
+    
+
+    public void AddGold(int amount, Vector3 worldPosition)
+    {
+
+        int finalGold = amount;
+
+        if (randomPrefabSpawner != null)
+        {
+            int roachCount = randomPrefabSpawner.GetRouchCount();
+            float ratio = roachCount / (float)maxRoachCountForPenalty;
+            float penalty = Mathf.Clamp01((Mathf.Sqrt(ratio) * maxReductionRate));
+            finalGold = Mathf.Max(minGold, Mathf.RoundToInt(amount * (1f - penalty)));
+        }
+
+        currentGold += finalGold;
+
+        if (numberCounter != null)
+            numberCounter.SetTargetGold(currentGold);
+
+        // ✅ 이벤트 호출
+        OnGoldAdded?.Invoke(finalGold, worldPosition);
+    }
 
     public void RemoveGold(int amount)
     {
@@ -89,7 +123,7 @@ public class GoldManager : Singleton<GoldManager>
         //PlayerPrefs.Save();
 
         if (numberCounter != null)
-            numberCounter.SetTargetGolde(currentGold);
+            numberCounter.SetTargetGold(currentGold);
     }
 
     public void CheckGold()

@@ -117,7 +117,7 @@ public class WorkerAI : MonoBehaviour
             }
 
             // °ñµå Ãß°¡
-            GoldManager.Instance.AddGold(goldAmount);
+            GoldManager.Instance.AddGold(goldAmount, transform.position);
 
             if (AudioManager.Instance != null)
             {

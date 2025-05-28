@@ -74,6 +74,9 @@ public class AudioManager : MonoBehaviour
             case "Stage2":
                 ChangeBGM(stage2Clip);
                 break;
+            case "TestStage":
+                ChangeBGM(stage1Clip);
+                break;
             default:
                 Debug.LogWarning("해당 씬에 BGM 설정 없음: " + scene.name);
                 break;

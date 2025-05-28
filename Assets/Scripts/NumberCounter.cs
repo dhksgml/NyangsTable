@@ -47,7 +47,7 @@ public class NumberCounter : MonoBehaviour
         goldTween?.Kill();
     }
 
-    public void SetTargetGolde(float value)
+    public void SetTargetGold(float value)
     {
         target = value;
     }

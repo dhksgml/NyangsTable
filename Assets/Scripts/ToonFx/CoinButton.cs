@@ -11,7 +11,7 @@ public class CoinButton : MonoBehaviour
     public void OnClickAddGold()
     {
         // ∞ÒµÂ ¡ı∞°
-        GoldManager.Instance.AddGold(goldAmount);
+        //GoldManager.Instance.AddGold(goldAmount);
 
         // ¿Ã∆Â∆Æ ª˝º∫
         if (coinEffectPrefab != null && effectTarget != null)
