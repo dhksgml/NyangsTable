@@ -4,6 +4,8 @@ using DG.Tweening;
 
 public class WorkerAI : MonoBehaviour
 {
+    [SerializeField] private SpawnAnimEffect spawnAnimEffect;
+
     private Workstation currentWorkstation;
     private int collectedResources = 0;
 
@@ -42,7 +44,7 @@ public class WorkerAI : MonoBehaviour
                 // 작업 공간으로 이동
                 SetWalkAnimation(true);
 
-                yield return transform.DOMove(currentWorkstation.transform.position, WorkerManager.Instance.workerMoveSpeed)
+                yield return transform.DOMove(currentWorkstation.transform.position + new Vector3(0,0.5f,0), WorkerManager.Instance.workerMoveSpeed)
                     .SetSpeedBased()
                     .WaitForCompletion();
 
@@ -55,6 +57,7 @@ public class WorkerAI : MonoBehaviour
 
                 // 작업 완료 후 자리 비우기
                 currentWorkstation.Release();
+                spawnAnimEffect.SpawnParticle(transform.position);
 
                 // 원래 자리로 이동
                 SetWalkAnimation(true);
@@ -91,6 +94,8 @@ public class WorkerAI : MonoBehaviour
 
     private void SellProduct()
     {
+        spawnAnimEffect.SpawnParticle(transform.position);
+
         // 먼저, 판매할 제품 정보 가져오기
         Product productInfo = WorkSpaceManager.Instance.Product;
 

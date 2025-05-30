@@ -9,7 +9,7 @@ public class Owner : MonoBehaviour
     public int touchEarnGold = 1;
     public int touchEarnSpecialGold = 5;
 
-    private float specialProbability = 0.05f; //5% 확률
+    public float specialProbability = 0.05f; //5% 확률
 
     public ScaleEffect scaleEffect;
 

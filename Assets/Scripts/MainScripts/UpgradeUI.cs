@@ -27,7 +27,10 @@ public class UpgradeUI : MonoBehaviour
     [Header("Max Level Upgrade Fail Text")]
     [SerializeField] private string maxLevelUpgradeFailStr = "MAX";
 
+
     private BaseUpgrade baseUpgrade;
+
+    public FloatingTextManager floatingTextManager;
 
     private void Start()
     {

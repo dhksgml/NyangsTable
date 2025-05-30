@@ -7,6 +7,8 @@ public class Roach : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;
 
+    [SerializeField] private GameObject dieParticle;
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -29,6 +31,7 @@ public class Roach : MonoBehaviour
     {
         Debug.Log("Die");
         animator.SetTrigger("Die");
+        Instantiate(dieParticle, transform.position, Quaternion.identity);
         Camera.main.GetComponent<CameraZoomEffect>().ZoomToPosition(gameObject.transform.position);
         StartCoroutine(ColorFlesh());
     }

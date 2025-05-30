@@ -72,17 +72,19 @@ public class BaseUpgrade : MonoBehaviour
 
 
     // 골드 충분할 때만 업그레이드 시도
-    private void TryUpgrade(int cost, float multiplier, Action levelUpAction, Action<int> updateCostAction, Action upgradeAction)
+    private bool TryUpgrade(int cost, float multiplier, Action levelUpAction, Action<int> updateCostAction, Action upgradeAction)
     {
         if (GoldManager.Instance.CurrentGold < cost)
         {
             Debug.Log("Cost 부족");
-            if(currentCoroutine != null)
-            {
-                StopCoroutine(currentCoroutine);
-            }
-            currentCoroutine = StartCoroutine(ui.UpdateFailUI("Not enough Money!"));
-            return; 
+            //if(currentCoroutine != null)
+            //{
+            //    StopCoroutine(currentCoroutine);
+            //}
+            //currentCoroutine = StartCoroutine(ui.UpdateFailUI("Not enough Money!"));
+
+            ui.floatingTextManager.ShowFloatingText("골드 부족!", Vector3.zero);
+            return false; 
         }
         
         UpgradeData upgradeData = new UpgradeData(cost, multiplier, levelUpAction, updateCostAction);
@@ -95,7 +97,7 @@ public class BaseUpgrade : MonoBehaviour
         updateCostAction.Invoke(upgradeData.Cost);
 
         ui.UpdateUI();
-
+        return true;
     }
 
     public void BuyWorker()
@@ -103,13 +105,17 @@ public class BaseUpgrade : MonoBehaviour
         if(CurrentWorkerLevel >= maxWorkerLevel)
         {
             Debug.Log("max worker Level");
-            currentCoroutine = StartCoroutine(ui.UpdateFailUI("Max Level"));
+            //currentCoroutine = StartCoroutine(ui.UpdateFailUI("Max Level"));
+            ui.floatingTextManager.ShowFloatingText("최대레벨 도달!", Vector3.zero);
             return;
         }
 
-        TryUpgrade(buyWorkerCost, buyWorkerCostMultiplier,
-        () => CurrentWorkerLevel++, UpdateWorkerCost,
-        () => WorkerManager.Instance.CreateWorker());
+        if(TryUpgrade(buyWorkerCost, buyWorkerCostMultiplier,
+            () => CurrentWorkerLevel++, UpdateWorkerCost,
+            () => WorkerManager.Instance.CreateWorker()))
+        {
+            ui.floatingTextManager.ShowFloatingText("손님 + 1", Vector3.zero);
+        }
     }
 
     public void BuyWorkStation()
@@ -117,42 +123,55 @@ public class BaseUpgrade : MonoBehaviour
         if (CurrentWorkStationLevel >= maxWorkStationLevel)
         {
             Debug.Log("max WorkStation Level");
-            currentCoroutine = StartCoroutine(ui.UpdateFailUI("Max Level"));
+            //currentCoroutine = StartCoroutine(ui.UpdateFailUI("Max Level"));
+            ui.floatingTextManager.ShowFloatingText("최대레벨 도달!", Vector3.zero);
             return;
         }
 
-        TryUpgrade(buyWorkeStationCost, buyWorkeStationCostMultiplier,
+        if(TryUpgrade(buyWorkeStationCost, buyWorkeStationCostMultiplier,
         () => CurrentWorkStationLevel++, UpdateWorkStationCost,
-        () => WorkSpaceManager.Instance.CreateWorkstation());
+        () => WorkSpaceManager.Instance.CreateWorkstation()))
+        {
+            ui.floatingTextManager.ShowFloatingText("음식 + 1", Vector3.zero);
+        }
     }
 
-    
+
     public void UpgradeProductPrice()
     {
         if (CurrentUpgradeProductPriceLevel >= maxUpgradeProductPriceLevel)
         {
             Debug.Log("max ProductPrice Level");
-            currentCoroutine = StartCoroutine(ui.UpdateFailUI("Max Level"));
+            //currentCoroutine = StartCoroutine(ui.UpdateFailUI("Max Level"));
+            ui.floatingTextManager.ShowFloatingText("최대레벨 도달!", Vector3.zero);
             return;
         }
 
-        TryUpgrade(upgradeProductPriceCost, upgradeProductPriceCostMultiplier,
+        if (TryUpgrade(upgradeProductPriceCost, upgradeProductPriceCostMultiplier,
         () => CurrentUpgradeProductPriceLevel++, UpdateProductPriceCost,
-        () => WorkSpaceManager.Instance.Product.ProductPrice *= upgradeProductPriceMultiplier);
+        () => WorkSpaceManager.Instance.Product.ProductPrice *= upgradeProductPriceMultiplier))
+        {
+            ui.floatingTextManager.ShowFloatingText("음식가격 + 1", Vector3.zero);
+        }
     }
-   
+
     public void UpgradeProductSpeed()
     {
         if (CurrentUpgradeProductionTimeLevel >= maxUpgradeProductionTimeLevel)
         {
             Debug.Log("max product speed Level");
-            currentCoroutine = StartCoroutine(ui.UpdateFailUI("Max Level"));
+            //currentCoroutine = StartCoroutine(ui.UpdateFailUI("Max Level"));
+            ui.floatingTextManager.ShowFloatingText("최대레벨 도달!", Vector3.zero);
             return;
 
         }
-        TryUpgrade(upgradeProductionTimeCost, upgradeProductionTimeCostMultiplier,
+        if (TryUpgrade(upgradeProductionTimeCost, upgradeProductionTimeCostMultiplier,
         () => CurrentUpgradeProductionTimeLevel++, UpdateProductionTimeCost,
-        () => WorkSpaceManager.Instance.Product.ProductionTime *= upgradeProductionTimeMultiplier);
+        () => WorkSpaceManager.Instance.Product.ProductionTime *= upgradeProductionTimeMultiplier))
+        {
+            ui.floatingTextManager.ShowFloatingText("식사속도 + 1", Vector3.zero);
+        }
+
     }
 
     public void UpgradeWorkerSpeed()
@@ -160,17 +179,21 @@ public class BaseUpgrade : MonoBehaviour
         if (CurrentWorkerSpeedLevel >= maxWorkerSpeedLevel)
         {
             Debug.Log("max Worker Speed Level");
-            currentCoroutine = StartCoroutine(ui.UpdateFailUI("Max Level"));
+            //currentCoroutine = StartCoroutine(ui.UpdateFailUI("Max Level"));
+            ui.floatingTextManager.ShowFloatingText("최대레벨 도달!", Vector3.zero);
             return;
 
         }
 
-        TryUpgrade(upgradeWorkerSpeedCost, upgradeWorkerSpeedCostMultiplier,
+        if (TryUpgrade(upgradeWorkerSpeedCost, upgradeWorkerSpeedCostMultiplier,
         () => CurrentWorkerSpeedLevel++, UpdateWorkerSpeedCost,
         () =>
         {
             WorkerManager.Instance.UpgradeSpeed(upgradeWorkerSpeed);
-        });
+        }))
+        {
+            ui.floatingTextManager.ShowFloatingText("손님속도 + 1", Vector3.zero);
+        }
     }
 
     //가격 계산

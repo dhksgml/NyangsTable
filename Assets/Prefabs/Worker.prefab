@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7287062750497621246}
   - component: {fileID: -4191592682756713932}
   - component: {fileID: 1833975614}
+  - component: {fileID: -4286553754401733692}
   m_Layer: 0
   m_Name: Worker
   m_TagString: Untagged
@@ -27,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7287062750497621243}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7287062750497621240
 SpriteRenderer:
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863f6ed7507c43e4183987bad14fc86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnAnimEffect: {fileID: -4286553754401733692}
   sellEffectPrefab: {fileID: 5165084120834420796, guid: c1d2ffb52f8ddfb428728742dc8999f3, type: 3}
   effectSpawnPoint: {fileID: 7287062750497621241}
 --- !u!95 &-4191592682756713932
@@ -136,3 +138,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleFactor: 1.5
   duration: 0.2
+--- !u!114 &-4286553754401733692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7287062750497621243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ab291da65f3fa4f825e3a8aade4942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 100000, guid: 16125172f47b5354ba87375de9e8c939, type: 3}
