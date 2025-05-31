@@ -34,4 +34,4 @@
 > 2021.3.33f1
 
 ### 안드로이드 모바일 다운로드
-[APK 다운로드](https://github.com/dhksgml/NyangsTable/releases/tag/publish)
+[APK 다운로드](https://github.com/dhksgml/NyangsTable/releases/download/publish/NyangsTableM.apk)
