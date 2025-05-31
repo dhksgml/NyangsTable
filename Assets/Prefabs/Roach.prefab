@@ -149,3 +149,4 @@ MonoBehaviour:
   spriteRenderer: {fileID: 7967000640186603717}
   animator: {fileID: 8932073282656982152}
   dieParticle: {fileID: 499486032039600039, guid: 889c664a98b3d2b46813a17f37c9dfb2, type: 3}
+  dieAudioClip: {fileID: 8300000, guid: b643d06695630c84788b82669a46b8a7, type: 3}

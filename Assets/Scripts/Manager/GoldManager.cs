@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoldManager : Singleton<GoldManager>
+public class GoldManager : MonoBehaviour
 {
+    public static GoldManager Instance;
+
     [SerializeField] private int testGold = 100;
     [SerializeField] private int goalGold = 10100;
     [SerializeField] private RectTransform goldBar; // 골드바 슬라이더 UI
@@ -25,6 +27,21 @@ public class GoldManager : Singleton<GoldManager>
     NumberCounter numberCounter;
 
     public event Action<int, Vector3> OnGoldAdded;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+    }
 
     private void Start()
     {

@@ -8,6 +8,7 @@ public class Roach : MonoBehaviour
     [SerializeField] private Animator animator;
 
     [SerializeField] private GameObject dieParticle;
+    [SerializeField] private AudioClip dieAudioClip;
 
     private void Update()
     {
@@ -32,6 +33,8 @@ public class Roach : MonoBehaviour
         Debug.Log("Die");
         animator.SetTrigger("Die");
         Instantiate(dieParticle, transform.position, Quaternion.identity);
+        if (AudioManager.Instance)
+            AudioManager.Instance.PlaySFX(dieAudioClip);
         Camera.main.GetComponent<CameraZoomEffect>().ZoomToPosition(gameObject.transform.position);
         StartCoroutine(ColorFlesh());
     }
