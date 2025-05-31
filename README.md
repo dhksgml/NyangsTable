@@ -1,19 +1,31 @@
 # 프로젝트명 : 냥이의 식탁
-![image](https://github.com/user-attachments/assets/22fb5941-6bb1-4106-b414-aa6ed06c06da)
+![타이틀씬](https://github.com/user-attachments/assets/8f622245-3fa7-4320-9b87-c925b3e19473)
 
 ### 장르
 > 방치형 클리커 타이쿤
 
-![image](https://github.com/user-attachments/assets/cdb31826-c0cd-41e4-a446-b5a84ecfa03f)
+![레벨선택](https://github.com/user-attachments/assets/ccc73d7c-d817-4e15-a1d5-5894209008db)
 
-![image](https://github.com/user-attachments/assets/8ff84181-fc4f-4776-92d3-baaba312b775)
+![인게임씬](https://github.com/user-attachments/assets/428f9133-fc90-4bc5-a9dd-92b436caf53b)
 
 ### 게임설명
 > 고양이로 구성된 마을에 음식점을 낸 냥이.
->
-> 음식을 팔아 최고의 부자가 되어보자는 꿈을 갖는다.
+> 돈을 벌어 다양한 음식을 손님에게 제공하는 게 꿈이다.
 
-![image](https://github.com/user-attachments/assets/a18b8532-19b7-4622-908a-de5b949d44da)
+### 조작방법
+좌클릭
+
+### 냥이를 클릭하여 돈을 빠르게 모으세요.
+![고양이클릭](https://github.com/user-attachments/assets/fb6b2b5d-97e4-4249-95b6-c735be10ff1f)
+
+### 업그레이드를 통해 돈을 더 빠르게 모을 수 있어요.
+![image](https://github.com/user-attachments/assets/4e24bfa9-83a7-4064-b64b-607ba29dcb57)
+
+### 맵에 등장하는 바퀴벌레를 잡으세요.
+> 바퀴벌레는 획득하는 골드를 감소 시킵니다.
+> 가끔씩 UI 아래에도 숨는답니다.
+> 
+![바퀴벌레잡기](https://github.com/user-attachments/assets/e871b0ef-1117-46fd-a37a-0ac8d18cc617)
 
 ### Unity 버전
 > 2021.3.33f1
