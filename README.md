@@ -27,5 +27,8 @@
 > 
 ![바퀴벌레잡기](https://github.com/user-attachments/assets/e871b0ef-1117-46fd-a37a-0ac8d18cc617)
 
+### 소개영상
+[![인트로씬](https://github.com/user-attachments/assets/37694358-cc48-4b11-a794-9cefc6b6b8aa)](https://youtu.be/XlB7RfgtTYI)
+
 ### Unity 버전
 > 2021.3.33f1
